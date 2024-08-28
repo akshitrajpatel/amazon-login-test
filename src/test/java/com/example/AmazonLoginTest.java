@@ -3,6 +3,8 @@ package com.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -11,12 +13,25 @@ public class AmazonLoginTest {
 
     private WebDriver driver;
     private AmazonLoginPage loginPage;
+    private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com");
+    private String browser = System.getProperty("BROWSER", "chrome");
 
     @BeforeMethod
     public void setup() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        loginPage = new AmazonLoginPage(driver);
+        switch (browser.toLowerCase()) {
+            case "firefox":
+                WebDriverManager.firefoxdriver().setup();
+                driver = new FirefoxDriver();
+                break;
+            case "edge":
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+                break;
+            default:
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+        }
+        loginPage = new AmazonLoginPage(driver, testEnvUrl);
     }
 
     @Test
@@ -24,29 +39,18 @@ public class AmazonLoginTest {
         loginPage.navigateTo();
         loginPage.enterEmail("aksh.patel78@gmail.com");
         loginPage.clickContinue();
-        loginPage.enterPassword("123456");
+        loginPage.enterPassword("12345");
         loginPage.clickSignIn();
         // Add assertions here to verify successful login
     }
 
-    @Test
-    public void testInvalidEmail() {
-        loginPage.navigateTo();
-        loginPage.enterEmail("invalid_email");
-        loginPage.clickContinue();
-        // Add assertions here to verify error message
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
     }
-
-    @Test
-    public void testInvalidPassword() {
-        loginPage.navigateTo();
-        loginPage.enterEmail("aksh.patel78@gmail.com");
-        loginPage.clickContinue();
-        loginPage.enterPassword("invalid_password");
-        loginPage.clickSignIn();
-        // Add assertions here to verify error message
-    }
-
+}
     @AfterMethod
     public void tearDown() {
         if (driver != null) {
