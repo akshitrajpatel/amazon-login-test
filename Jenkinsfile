@@ -7,8 +7,10 @@ pipeline {
     }
 
     tools {
-        maven 'Maven 3.8.4'
-        jdk 'JDK 11'
+        // Use 'maven' instead of a specific version
+        maven 'maven'
+        // Use 'jdk' instead of a specific version
+        jdk 'jdk'
     }
 
     stages {
