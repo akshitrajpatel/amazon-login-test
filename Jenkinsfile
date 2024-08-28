@@ -7,10 +7,8 @@ pipeline {
     }
 
     tools {
-        // Use 'maven' instead of a specific version
         maven 'maven'
-        // Use 'jdk' instead of a specific version
-        jdk 'jdk'
+        jdk 'jdk'  // Make sure this matches the name you gave in Global Tool Configuration
     }
 
     stages {
@@ -40,11 +38,7 @@ pipeline {
 
     post {
         failure {
-            emailext (
-                subject: "Failed Pipeline: ${currentBuild.fullDisplayName}",
-                body: "Something is wrong with ${env.BUILD_URL}",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
-            )
+            echo "Build failed. Email notification would be sent here."
         }
     }
 }
