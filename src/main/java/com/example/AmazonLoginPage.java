@@ -8,7 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 public class AmazonLoginPage {
 
     private WebDriver driver;
-
+    private String url; // Declared 'url' as a class-level variable
+    
     @FindBy(id = "ap_email")
     private WebElement emailInput;
 
@@ -28,7 +29,7 @@ public class AmazonLoginPage {
     }
 
     public void navigateTo() {
-        driver.get("https://www.amazon.com/ap/signin");
+        driver.get(url + "https://www.amazon.com/ap/signin");
     }
 
     public void enterEmail(String email) {
