@@ -30,6 +30,12 @@ pipeline {
             }
         }
 
+        stage('Verify Files') {
+            steps {
+                bat 'dir C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\Amazon-Login-Test\\src\\test\\resources'
+            }
+        }
+
         stage('Test') {
             steps {
                 bat "mvn test -DTEST_ENV_URL=${params.TEST_ENV_URL} -DBROWSER=${params.BROWSER}"
