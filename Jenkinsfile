@@ -12,6 +12,12 @@ pipeline {
     }
 
     stages {
+        stage('Verify JAVA_HOME') {
+            steps {
+                bat 'echo %JAVA_HOME%'
+                bat 'java -version'
+            }
+        }
         stage('Checkout') {
             steps {
                 checkout scm
