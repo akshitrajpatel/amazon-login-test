@@ -21,8 +21,9 @@ public class AmazonLoginPage {
     @FindBy(id = "signInSubmit")
     private WebElement signInButton;
 
-    public AmazonLoginPage(WebDriver driver) {
+    public AmazonLoginPage(WebDriver driver, string url) {
         this.driver = driver;
+        this.url = url;
         PageFactory.initElements(driver, this);
     }
 
