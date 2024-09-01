@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class AmazonLoginTest {
 
     private WebDriver driver;
-    private AmazonLoginTest loginPage;
+    private AmazonLoginPage loginPage;  // Changed type to AmazonLoginPage
     private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com");
     private String browser = System.getProperty("BROWSER", "chrome");
 
@@ -31,7 +31,7 @@ public class AmazonLoginTest {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
         }
-        loginPage = new AmazonLoginTest(driver, testEnvUrl);
+        loginPage = new AmazonLoginPage(driver, testEnvUrl);  // Assuming AmazonLoginPage class exists
     }
 
     @Test
@@ -44,13 +44,6 @@ public class AmazonLoginTest {
         // Add assertions here to verify successful login
     }
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-}
     @AfterMethod
     public void tearDown() {
         if (driver != null) {
