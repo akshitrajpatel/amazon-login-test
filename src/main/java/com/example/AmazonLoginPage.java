@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AmazonLoginTest {
+public class AmazonLoginPage {
 
     private WebDriver driver;
 
@@ -21,7 +21,7 @@ public class AmazonLoginTest {
     @FindBy(id = "signInSubmit")
     private WebElement signInButton;
 
-    public AmazonLoginTest(WebDriver driver) {
+    public AmazonLoginPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
