@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class AmazonLoginTest {
 
     private WebDriver driver;
-    private AmazonLoginPage loginPage;
+    private AmazonLoginTest loginPage;
     private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com");
     private String browser = System.getProperty("BROWSER", "chrome");
 
@@ -31,7 +31,7 @@ public class AmazonLoginTest {
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
         }
-        loginPage = new AmazonLoginPage(driver, testEnvUrl);
+        loginPage = new AmazonLoginTest(driver, testEnvUrl);
     }
 
     @Test
