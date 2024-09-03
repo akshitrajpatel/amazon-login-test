@@ -16,7 +16,7 @@
     <dependencies>
         <dependency>
                  <groupId>org.seleniumhq.selenium</groupId>
-                 <artifactId>selenium-devtools-v128</artifactId>
+                 <artifactId>selenium-java</artifactId>
                  <version>4.10.0</version> <!-- Match with your Selenium version -->
         </dependency>
 
