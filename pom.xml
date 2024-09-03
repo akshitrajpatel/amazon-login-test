@@ -15,10 +15,11 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.10.0</version>
+                 <groupId>org.seleniumhq.selenium</groupId>
+                 <artifactId>selenium-devtools-v128</artifactId>
+                 <version>4.10.0</version> <!-- Match with your Selenium version -->
         </dependency>
+
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
