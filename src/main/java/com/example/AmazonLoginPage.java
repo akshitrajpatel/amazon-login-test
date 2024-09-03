@@ -8,8 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 public class AmazonLoginPage {
 
     private WebDriver driver;
-    private String baseUrl;
-
+    private String url; // Declared 'url' as a class-level variable
+    
     @FindBy(id = "ap_email")
     private WebElement emailInput;
 
@@ -22,14 +22,14 @@ public class AmazonLoginPage {
     @FindBy(id = "signInSubmit")
     private WebElement signInButton;
 
-    public AmazonLoginPage(WebDriver driver, String baseUrl) {
+    public AmazonLoginPage(WebDriver driver, String url) {
         this.driver = driver;
-        this.baseUrl = baseUrl;
+        this.url = url;
         PageFactory.initElements(driver, this);
     }
 
     public void navigateTo() {
-        driver.get(baseUrl + "/ap/signin");
+        driver.get(url + "/ap/signin");
     }
 
     public void enterEmail(String email) {
@@ -46,14 +46,5 @@ public class AmazonLoginPage {
 
     public void clickSignIn() {
         signInButton.click();
-    }
-
-    // Getter methods for WebElements
-    public WebElement getEmailInput() {
-        return emailInput;
-    }
-
-    public WebElement getPasswordInput() {
-        return passwordInput;
     }
 }
