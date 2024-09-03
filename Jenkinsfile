@@ -39,7 +39,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Running tests on ${params.BROWSER} with URL ${params.TEST_ENV_URL}"
-                bat "mvn test -DTEST_ENV_URL=${params.TEST_ENV_URL} -DBROWSER=${params.BROWSER} -e -X"
+                bat "mvn test -DTEST_ENV_URL=${params.TEST_ENV_URL} -DBROWSER=${params.BROWSER}"
             }
             post {
                 always {
