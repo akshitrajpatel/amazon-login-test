@@ -28,8 +28,8 @@ public class AmazonLoginTest {
                 driver = new EdgeDriver();
                 break;
             default:
-                WebDriverManager.chromedriver().setup();
-                //WebDriverManager.chromedriver().browserVersion("128.0.6613.85").setup();
+                //WebDriverManager.chromedriver().setup();
+                WebDriverManager.chromedriver().browserVersion("128.0.6613.120").setup();
                 driver = new ChromeDriver();
         }
         loginPage = new AmazonLoginPage(driver, testEnvUrl);  // Assuming AmazonLoginPage class exists
