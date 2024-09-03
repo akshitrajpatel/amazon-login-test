@@ -8,14 +8,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import java.time.Duration;
 
 public class AmazonLoginTest {
 
     private WebDriver driver;
-    private AmazonLoginPage loginPage;
+    private AmazonLoginPage loginPage;  // Changed type to AmazonLoginPage
     private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com");
     private String browser = System.getProperty("BROWSER", "chrome");
 
@@ -31,23 +28,18 @@ public class AmazonLoginTest {
                 driver = new EdgeDriver();
                 break;
             default:
+                //WebDriverManager.chromedriver().setup();
                 WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver();
         }
-        loginPage = new AmazonLoginPage(driver, testEnvUrl);
+        loginPage = new AmazonLoginPage(driver, testEnvUrl);  // Assuming AmazonLoginPage class exists
     }
 
-    @Test(retryAnalyzer = RetryAnalyzer.class)
+    @Test
     public void testValidLogin() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
         loginPage.navigateTo();
-        wait.until(ExpectedConditions.visibilityOf(loginPage.getEmailInput()));
-
         loginPage.enterEmail("aksh.patel78@gmail.com");
         loginPage.clickContinue();
-        wait.until(ExpectedConditions.visibilityOf(loginPage.getPasswordInput()));
-
         loginPage.enterPassword("12345");
         loginPage.clickSignIn();
         // Add assertions here to verify successful login
