@@ -24,7 +24,7 @@ public class AmazonLoginTest {
                 driver = new FirefoxDriver();
                 break;
             case "edge":
-                WebDriverManager.edgedriver().setup();
+                WebDriverManager.edgedriver().driverVersion("129.0.2792.12").setup();
                 driver = new EdgeDriver();
                 break;
             default:
