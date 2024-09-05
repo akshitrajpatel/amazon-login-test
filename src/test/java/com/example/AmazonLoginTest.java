@@ -3,7 +3,7 @@ package com.example;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -20,8 +20,12 @@ public class AmazonLoginTest {
     public void setup() {
         switch (browser.toLowerCase()) {
             case "firefox":
+                //WebDriverManager.firefoxdriver().setup();
+                //driver = new FirefoxDriver();
+                FirefoxOptions options = new FirefoxOptions();
+                options.setBinary("C:\Users\akshp\AppData\Local\Microsoft\WindowsApps\firefox.exe"); // Specify the path to firefox.exe
                 WebDriverManager.firefoxdriver().setup();
-                driver = new FirefoxDriver();
+                driver = new FirefoxDriver(options);
                 break;
             case "edge":
                 WebDriverManager.edgedriver().setup();
