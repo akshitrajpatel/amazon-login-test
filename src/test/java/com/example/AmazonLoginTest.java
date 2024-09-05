@@ -35,11 +35,16 @@ public class AmazonLoginTest {
         loginPage = new AmazonLoginPage(driver, testEnvUrl);  // Assuming AmazonLoginPage class exists
     }
 
-    @Test
+    @Test(retryAnalyzer = RetryAnalyzer.class)
     public void testValidLogin() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         loginPage.navigateTo();
+        // Wait until the email input field is visible
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_email")));
         loginPage.enterEmail("aksh.patel78@gmail.com");
         loginPage.clickContinue();
+        // Wait until the password input field is visible
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("ap_password")));
         loginPage.enterPassword("12345");
         loginPage.clickSignIn();
         // Add assertions here to verify successful login
