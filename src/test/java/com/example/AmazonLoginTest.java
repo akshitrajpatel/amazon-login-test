@@ -13,8 +13,8 @@ public class AmazonLoginTest {
 
     private WebDriver driver;
     private AmazonLoginPage loginPage;  // Changed type to AmazonLoginPage
-    private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com/ap/signin");
-    private String browser = System.getProperty("BROWSER", "chrome");
+    private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com/");
+    private String browser = System.getProperty("BROWSER", "firefox");
 
     @BeforeMethod
     public void setup() {
