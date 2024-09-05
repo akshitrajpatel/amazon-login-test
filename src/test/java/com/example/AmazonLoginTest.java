@@ -23,7 +23,7 @@ public class AmazonLoginTest {
                 //WebDriverManager.firefoxdriver().setup();
                 //driver = new FirefoxDriver();
                 FirefoxOptions options = new FirefoxOptions();
-                options.setBinary("C:\Users\akshp\AppData\Local\Microsoft\WindowsApps\firefox.exe"); // Specify the path to firefox.exe
+                options.setBinary(System.getenv("FIREFOX_HOME")); // Specify the path to firefox.exe
                 WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver(options);
                 break;
