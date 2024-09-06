@@ -10,7 +10,7 @@ public class AmazonLoginPage {
     private WebDriver driver;
     private String url; // Declared 'url' as a class-level variable
     
-    @FindBy(id = "ap_email")
+    @FindBy(id = "userName")
     private WebElement emailInput;
 
     @FindBy(id = "checkUser")
