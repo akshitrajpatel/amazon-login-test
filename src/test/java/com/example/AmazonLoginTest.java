@@ -45,7 +45,7 @@ public class AmazonLoginTest {
         // Use XPath to locate the email input field
         By emailLocator = By.xpath("//*[@id='userName']");
         System.out.println("webpage hit.......");
-        loginPage.enterEmail("aksh.patel78@gmail.com");
+        loginPage.enterEmail("akshitpatel574@gmail.com");
         loginPage.clickContinue();
         System.out.println("webpage hit me hit mee.......");
         // Use XPath to locate the password input field
