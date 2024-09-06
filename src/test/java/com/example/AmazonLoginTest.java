@@ -38,8 +38,12 @@ public class AmazonLoginTest {
     @Test
     public void testValidLogin() {
         loginPage.navigateTo();
+        // Use XPath to locate the email input field
+        By emailLocator = By.xpath("//input[@id='ap_email']");
         loginPage.enterEmail("aksh.patel78@gmail.com");
         loginPage.clickContinue();
+        // Use XPath to locate the password input field
+        By passwordLocator = By.xpath("//input[@id='ap_password']");
         loginPage.enterPassword("12345");
         loginPage.clickSignIn();
         // Add assertions here to verify successful login
