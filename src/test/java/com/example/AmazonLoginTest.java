@@ -38,6 +38,9 @@ public class AmazonLoginTest {
     @Test
     public void testValidLogin() {
         loginPage.navigateTo();
+        WebElement divele = driver.findElement(By.xpath("//div[@id=='ab-signin-link-section']"));
+        String claaname1=divele.getAttribute("class"); 
+        System.out.println("checking element class "+ claaname1);
         // Use XPath to locate the email input field
         By emailLocator = By.xpath("//*[@id='ap_email']");
         loginPage.enterEmail("aksh.patel78@gmail.com");
