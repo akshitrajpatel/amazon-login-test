@@ -14,13 +14,13 @@ public class AmazonLoginPage {
     private WebElement emailInput;
 
     @FindBy(id = "checkUser")
-    private WebElement continueButton;
+    private WebElement btn;
 
-    @FindBy(id = "ap_password")
+    @FindBy(id = "j_password")
     private WebElement passwordInput;
 
-    @FindBy(id = "signInSubmit")
-    private WebElement signInButton;
+    @FindBy(id = "userSignup")
+    private WebElement continueBtn;
 
     public AmazonLoginPage(WebDriver driver, String url) {
         this.driver = driver;
