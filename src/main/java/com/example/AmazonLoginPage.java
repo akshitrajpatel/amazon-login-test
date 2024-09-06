@@ -13,7 +13,7 @@ public class AmazonLoginPage {
     @FindBy(id = "ap_email")
     private WebElement emailInput;
 
-    @FindBy(id = "continue")
+    @FindBy(id = "checkUser")
     private WebElement continueButton;
 
     @FindBy(id = "ap_password")
