@@ -38,7 +38,7 @@ public class AmazonLoginPage {
     }
 
     public void clickContinue() {
-        continueButton.click();
+        btn.click();
     }
 
     public void enterPassword(String password) {
@@ -46,6 +46,6 @@ public class AmazonLoginPage {
     }
 
     public void clickSignIn() {
-        signInButton.click();
+        continueBtn.click();
     }
 }
