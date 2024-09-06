@@ -49,7 +49,7 @@ public class AmazonLoginTest {
         loginPage.clickContinue();
         System.out.println("webpage hit me hit mee.......");
         // Use XPath to locate the password input field
-        By passwordLocator = By.xpath("//*[@id='ap_password']");
+        By passwordLocator = By.xpath("//*[@id='j_password']");
         loginPage.enterPassword("12345");
         loginPage.clickSignIn();
         // Add assertions here to verify successful login
