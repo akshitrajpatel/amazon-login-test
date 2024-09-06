@@ -14,7 +14,9 @@ public class AmazonLoginTest {
 
     private WebDriver driver;
     private AmazonLoginPage loginPage;  // Changed type to AmazonLoginPage
-    private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com");
+    //private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com");
+    //https://www.snapdeal.com/
+    private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.snapdeal.com");
     private String browser = System.getProperty("BROWSER", "edge");
 
     @BeforeMethod
@@ -39,11 +41,9 @@ public class AmazonLoginTest {
     @Test
     public void testValidLogin() {
         loginPage.navigateTo();
-        WebElement divele = driver.findElement(By.xpath("//div[@id='ab-signin-link-section']"));
-        String claaname1=divele.getAttribute("class"); 
-        System.out.println("checking element class "+ claaname1);
         // Use XPath to locate the email input field
-        By emailLocator = By.xpath("//*[@id='ap_email']");
+        By emailLocator = By.xpath("//*[@id='userName']");
+        System.out.println("webpage hit.......");
         loginPage.enterEmail("aksh.patel78@gmail.com");
         loginPage.clickContinue();
         // Use XPath to locate the password input field
