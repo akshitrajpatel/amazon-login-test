@@ -17,6 +17,7 @@ public class AmazonLoginTest {
     //private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.amazon.com");
     //https://www.snapdeal.com/
     private String testEnvUrl = System.getProperty("TEST_ENV_URL", "https://www.snapdeal.com");
+    
     private String browser = System.getProperty("BROWSER", "edge");
 
     @BeforeMethod
